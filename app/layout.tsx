@@ -1,3 +1,4 @@
+'use client'
 import type { ReactNode } from "react"
 import { LanguageProvider } from "@/components/language-provider"
 import { CookieConsent } from "@/components/cookie-consent"
