@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-x: hidden;
+    scrollbar-width: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.prose {
+  --tw-prose-body: #d4d4d4;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-links: #ffffff;
+  --tw-prose-bold: #ffffff;
+  --tw-prose-counters: #d4d4d4;
+  --tw-prose-bullets: #d4d4d4;
+  --tw-prose-hr: #404040;
+  --tw-prose-quotes: #d4d4d4;
+  --tw-prose-quote-borders: #404040;
+  --tw-prose-captions: #a3a3a3;
+  --tw-prose-code: #ffffff;
+  --tw-prose-pre-code: #ffffff;
+  --tw-prose-pre-bg: #1a1a1a;
+  --tw-prose-th-borders: #404040;
+  --tw-prose-td-borders: #404040;
+}
