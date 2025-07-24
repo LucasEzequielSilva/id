@@ -102,7 +102,7 @@ export function FloatingFooter({ language }: { language: string }) {
               <p className="text-sm text-neutral-600">
                 © {new Date().getFullYear()} {t("footer.rights")}
               </p>
-              <div className="text-sm text-neutral-600">Made by 0800design</div>
+              <div className="text-sm text-neutral-600">Made by 0800WEB</div>
             </div>
           </div>
         </div>
