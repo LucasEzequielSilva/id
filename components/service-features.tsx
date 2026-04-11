@@ -20,7 +20,7 @@ export function ServiceFeature({ title, description, features, image, index }: S
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className={`space-y-8 ${index % 2 === 0 ? "md:order-1" : ""}`}>
+      <div className={`space-y-8 ${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
         <div className="space-y-4">
           <div className="inline-block">
             <div className="bg-[#ECEAE4] text-[#6B6B66] px-4 py-1 rounded-full text-sm font-medium">
@@ -53,7 +53,7 @@ export function ServiceFeature({ title, description, features, image, index }: S
       </div>
 
       <motion.div
-        className={`overflow-hidden relative aspect-[4/3] ${index % 2 === 0 ? "md:order-2" : ""}`}
+        className={`overflow-hidden relative aspect-[4/3] ${index % 2 === 0 ? "md:order-2" : "md:order-1"}`}
         initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}

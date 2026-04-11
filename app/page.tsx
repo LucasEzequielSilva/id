@@ -92,7 +92,7 @@ export default function Home() {
           aria-hidden="true"
         />
 
-        <div className="relative z-20 container mx-auto px-4 md:px-8 max-w-3xl ml-auto mr-auto md:ml-[8%] md:mr-auto">
+        <div className="relative z-20 container mx-auto px-4 md:px-8 max-w-3xl">
           <div className="hero-badge opacity-0 mb-4">
             <span className="inline-flex items-center gap-2 text-[13px] text-[#8A8A84] tracking-wide">
               <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
