@@ -203,7 +203,7 @@ export const translations = {
       privacy: "Política de privacidad",
       terms: "Términos de servicio",
       rights: "Todos los derechos reservados.",
-      description: "Servicios psicológicos profesionales centrados en la precisión y la confianza.",
+      description: "Centro ID: servicios psicológicos profesionales centrados en la precisión y la confianza.",
     },
     faq: {
       title: "Preguntas frecuentes",
@@ -363,13 +363,13 @@ export const translations = {
     },
     aboutPage: {
       hero: {
-        title: "Sobre ID Therapy",
+        title: "Sobre Centro ID",
         subtitle: "Servicios psicológicos profesionales con enfoque en la precisión y la confianza",
       },
       mission: {
         title: "Nuestra Misión",
         description:
-          "En ID Therapy, estamos comprometidos a brindar servicios psicológicos de alta calidad que empoderen a las personas a superar desafíos, lograr crecimiento personal y mejorar su bienestar general. Nuestro enfoque combina el rigor científico con la comprensión empática, asegurando que cada cliente reciba atención personalizada adaptada a sus necesidades únicas.",
+          "En Centro ID, estamos comprometidos a brindar servicios psicológicos de alta calidad que empoderen a las personas a superar desafíos, lograr crecimiento personal y mejorar su bienestar general. Nuestro enfoque combina el rigor científico con la comprensión empática, asegurando que cada cliente reciba atención personalizada adaptada a sus necesidades únicas.",
       },
       team: {
         title: "Nuestro Equipo",
@@ -522,7 +522,7 @@ export const translations = {
       privacy: "Privacy Policy",
       terms: "Terms of service",
       rights: "All rights reserved.",
-      description: "Professional psychological services with a focus on precision and trust.",
+      description: "Centro ID: professional psychological services with a focus on precision and trust.",
     },
     faq: {
       title: "Frequently asked questions",
@@ -681,13 +681,13 @@ export const translations = {
     },
     aboutPage: {
       hero: {
-        title: "About ID Therapy",
+        title: "About Centro ID",
         subtitle: "Professional psychological services with a focus on precision and trust",
       },
       mission: {
         title: "Our Mission",
         description:
-          "At ID Therapy, we are committed to providing high-quality psychological services that empower individuals to overcome challenges, achieve personal growth, and improve their overall well-being. Our approach combines scientific rigor with empathetic understanding, ensuring that each client receives personalized care tailored to their unique needs.",
+          "At Centro ID, we are committed to providing high-quality psychological services that empower individuals to overcome challenges, achieve personal growth, and improve their overall well-being. Our approach combines scientific rigor with empathetic understanding, ensuring that each client receives personalized care tailored to their unique needs.",
       },
       team: {
         title: "Our Team",

@@ -16,42 +16,36 @@ const icons = [Brain, Heart, Users, Shield]
 
 export function ServiceBenefits({ title, subtitle, benefits }: ServiceBenefitsProps) {
   return (
-    <section className="py-24 bg-neutral-950">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-[#ECEAE4]">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.div
-          className="max-w-2xl mx-auto text-center mb-16"
+          className="max-w-xl mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         >
-          <h2 className="text-3xl tracking-tight text-white mb-4">{title}</h2>
-          <p className="text-neutral-400">{subtitle}</p>
+          <h2 className="text-2xl md:text-[2rem] tracking-tight text-[#1A1A18] font-medium mb-4">{title}</h2>
+          <p className="text-[#6B6B66]">{subtitle}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {benefits.map((benefit, i) => {
             const Icon = icons[i]
             return (
               <motion.div
                 key={i}
-                className="group relative"
+                className="group bg-white rounded-2xl p-7 border border-[#E5E4DF] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.25, 1, 0.5, 1] }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent rounded-2xl blur-xl transition-opacity group-hover:opacity-100 opacity-0" />
-                <div className="relative">
-                  <div className="bg-neutral-900 rounded-2xl p-8 min-h-[280px] border border-white/5 backdrop-blur-3xl transition-colors group-hover:bg-neutral-800/50">
-                    <div className="relative w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center">
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <Icon className="h-6 w-6 text-white relative z-10" />
-                    </div>
-                    <h3 className="text-lg font-medium text-white mb-2">{benefit.title}</h3>
-                    <p className="text-neutral-400 text-sm leading-relaxed">{benefit.description}</p>
-                  </div>
+                <div className="w-10 h-10 rounded-xl mb-5 bg-[#F5F4F0] border border-[#E5E4DF] flex items-center justify-center text-[#1A1A18]/40 group-hover:text-[#1A1A18]/60 transition-colors duration-200">
+                  <Icon className="h-5 w-5" />
                 </div>
+                <h3 className="text-base font-medium text-[#1A1A18] mb-2 tracking-tight">{benefit.title}</h3>
+                <p className="text-[#8A8A84] text-sm leading-relaxed">{benefit.description}</p>
               </motion.div>
             )
           })}
@@ -60,4 +54,3 @@ export function ServiceBenefits({ title, subtitle, benefits }: ServiceBenefitsPr
     </section>
   )
 }
-

@@ -18,20 +18,20 @@ export function Testimonials({ title, subtitle }: TestimonialsProps) {
   }>
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-[#F5F4F0]">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.div
-          className="max-w-2xl mx-auto text-center mb-16"
+          className="max-w-xl mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl mb-4">{title}</h2>
-          <p className="text-neutral-600">{subtitle}</p>
+          <h2 className="text-2xl md:text-[2rem] font-medium text-[#1A1A18] tracking-tight mb-4">{title}</h2>
+          <p className="text-[#6B6B66]">{subtitle}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5">
           {Array.isArray(testimonials) &&
             testimonials.map((testimonial, index) => <TestimonialCard key={index} {...testimonial} index={index} />)}
         </div>
@@ -39,4 +39,3 @@ export function Testimonials({ title, subtitle }: TestimonialsProps) {
     </section>
   )
 }
-

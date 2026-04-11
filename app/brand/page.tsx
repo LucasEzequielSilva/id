@@ -70,7 +70,7 @@ export default function BrandPage() {
         <div className="flex items-center justify-between p-4">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Frame%205-rSOsqsF4JJoHfJOQiKJ2fLeKdtsq3u.svg"
-            alt="ID Therapy Logo"
+            alt="Centro ID Logo"
             className="h-8"
           />
           <button
@@ -91,7 +91,7 @@ export default function BrandPage() {
         <div className="mb-8 p-8 lg:p-0">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Frame%205-rSOsqsF4JJoHfJOQiKJ2fLeKdtsq3u.svg"
-            alt="ID Therapy Logo"
+            alt="Centro ID Logo"
             className="h-8 hidden lg:block"
           />
         </div>

@@ -5,10 +5,11 @@ import { Toaster } from "sonner"
 import dynamic from "next/dynamic"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top").then((mod) => mod.ScrollToTop), { ssr: false })
+const SmoothScroll = dynamic(() => import("@/components/smooth-scroll").then((mod) => mod.SmoothScroll), { ssr: false })
 
 export const metadata = {
-  title: "ID - Terapia y Pericias",
-  description: "Servicios psicológicos profesionales y pericias",
+  title: "Centro ID - Psicología y Pericias",
+  description: "Centro ID: servicios psicológicos profesionales, terapia y pericias en Jujuy, Argentina.",
 }
 
 export default function RootLayout({
@@ -25,18 +26,17 @@ export default function RootLayout({
           type="image/svg+xml"
         />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+        <noscript><style>{`.hero-title, .hero-sub, .hero-badge, .hero-cta, .faq-item { opacity: 1 !important; }`}</style></noscript>
       </head>
       <body>
         <LanguageProvider>
-          <ScrollToTop />
-          {children}
-          <Toaster />
+          <SmoothScroll>
+            <ScrollToTop />
+            {children}
+            <Toaster />
+          </SmoothScroll>
         </LanguageProvider>
       </body>
     </html>
   )
 }
-
-
-
-import './globals.css'

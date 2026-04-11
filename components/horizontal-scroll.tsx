@@ -1,111 +1,102 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef, useEffect } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useTranslations } from "@/lib/i18n"
+import { Award, Fingerprint, Globe, TrendingUp } from "lucide-react"
+
+gsap.registerPlugin(ScrollTrigger)
+
+const slideIcons = [Award, Fingerprint, Globe, TrendingUp]
 
 export function HorizontalScroll() {
-  const { t } = useTranslations()
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  })
+  const { t, language } = useTranslations()
+  const sectionRef = useRef<HTMLElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const progressRef = useRef<HTMLDivElement>(null)
 
   const slides = [
-    {
-      titleKey: "whyChooseUs.slides.professional.title",
-      descriptionKey: "whyChooseUs.slides.professional.description",
-      image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?q=80&w=1000&auto=format&fit=crop",
-    },
-    {
-      titleKey: "whyChooseUs.slides.personalized.title",
-      descriptionKey: "whyChooseUs.slides.personalized.description",
-      image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?q=80&w=1000&auto=format&fit=crop",
-    },
-    {
-      titleKey: "whyChooseUs.slides.global.title",
-      descriptionKey: "whyChooseUs.slides.global.description",
-      image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=1000&auto=format&fit=crop",
-    },
-    {
-      titleKey: "whyChooseUs.slides.results.title",
-      descriptionKey: "whyChooseUs.slides.results.description",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000&auto=format&fit=crop",
-    },
+    { titleKey: "whyChooseUs.slides.professional.title", descriptionKey: "whyChooseUs.slides.professional.description" },
+    { titleKey: "whyChooseUs.slides.personalized.title", descriptionKey: "whyChooseUs.slides.personalized.description" },
+    { titleKey: "whyChooseUs.slides.global.title", descriptionKey: "whyChooseUs.slides.global.description" },
+    { titleKey: "whyChooseUs.slides.results.title", descriptionKey: "whyChooseUs.slides.results.description" },
   ]
 
-  const progressTransforms = slides.map((_, i) => {
-    return useTransform(scrollYProgress, [i * 0.2, 0.2 + i * 0.2], [0, 1])
-  })
+  useEffect(() => {
+    if (!sectionRef.current || !trackRef.current) return
+    const track = trackRef.current
+
+    const ctx = gsap.context(() => {
+      const totalScroll = track.scrollWidth - window.innerWidth
+
+      gsap.to(track, {
+        x: -totalScroll,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          pin: true,
+          scrub: 0.5,
+          end: () => `+=${totalScroll}`,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            if (progressRef.current) {
+              progressRef.current.style.transform = `scaleX(${self.progress})`
+            }
+          },
+        },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-neutral-950 flex flex-col items-center">
-      <div className="sticky top-0 h-screen flex overflow-hidden w-full">
-        <div className="w-full mt-24">
-          <motion.h2
-            className="text-white text-3xl md:text-4xl font-regular tracking-tighter mb-6 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#F5F4F0]">
+      <div ref={trackRef} className="flex items-center h-screen">
+        {/* Intro */}
+        <div className="flex-shrink-0 w-[85vw] md:w-[40vw] lg:w-[35vw] h-full flex flex-col justify-center pl-4 md:pl-8 pr-12 md:pr-20">
+          <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#1A1A18] leading-[1.15]">
             {t("whyChooseUs.title")}
-          </motion.h2>
+          </h2>
+          <div className="w-10 h-px bg-[#D4D3CE] mt-6" />
+        </div>
 
-          {slides.map((slide, i) => {
-            const progress = progressTransforms[i]
-            const x = useTransform(progress, [0, 1], ["100%", "0%"])
-            const opacity = useTransform(progress, [0, 0.5, 1], [0, 1, 1])
-
-            return (
-              <motion.div
-                key={i}
-                className="absolute w-full px-4 md:px-8"
-                style={{
-                  opacity,
-                  x,
-                }}
-              >
-                <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center px-4 md:px-8">
-                  <div className="relative group overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-gradient-to-r from-zinc-500/10 via-zinc-50/10 to-zinc-700/10 rounded-2xl blur-xl"
-                      style={{
-                        maskImage: "radial-gradient(circle at center, black, transparent)",
-                        WebkitMaskImage: "radial-gradient(circle at center, black, transparent)",
-                      }}
-                    />
-                    <div className="relative bg-neutral-900 rounded-2xl p-8 md:p-12 min-h-[328px]">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-white/0" />
-                      <div className="relative">
-                        <h3 className="text-4xl md:text-5xl lg:text-7xl text-white mb-4 md:mb-8 tracking-tight">
-                          {t(slide.titleKey)}
-                        </h3>
-                        <p className="text-lg md:text-xl text-neutral-300 max-w-xl">{t(slide.descriptionKey)}</p>
-                      </div>
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-zinc-500/10 to-zinc-500/10 blur-3xl" />
-                      <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-zinc-500/10 to-zinc-500/10 blur-3xl" />
-                    </div>
-                  </div>
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent p-[1px]">
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                        <img
-                          src={slide.image || "/placeholder.svg"}
-                          alt={t(slide.titleKey)}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
+        {/* Cards */}
+        {slides.map((slide, i) => {
+          const Icon = slideIcons[i]
+          return (
+            <div key={i} className="flex-shrink-0 w-[82vw] md:w-[42vw] lg:w-[30vw] px-2 md:px-3">
+              <div className="relative h-[60vh] md:h-[65vh] rounded-2xl p-8 md:p-10 flex flex-col justify-between group transition-all duration-300 hover:translate-y-[-2px] bg-white border border-[#E5E4DF] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+                <div className="flex items-start justify-between">
+                  <span className="text-[5rem] md:text-[6rem] font-bold leading-none tracking-tighter text-[#1A1A18]/[0.04] select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#1A1A18]/30 bg-[#F5F4F0] border border-[#E5E4DF] transition-colors duration-200 group-hover:text-[#1A1A18]/50">
+                    <Icon className="w-5 h-5" />
                   </div>
                 </div>
-              </motion.div>
-            )
-          })}
-        </div>
+
+                <div>
+                  <h3 className="text-xl md:text-2xl text-[#1A1A18] font-medium tracking-tight mb-3 leading-tight">
+                    {t(slide.titleKey)}
+                  </h3>
+                  <p className="text-[#8A8A84] text-sm leading-relaxed">
+                    {t(slide.descriptionKey)}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+
+        <div className="flex-shrink-0 w-[15vw]" />
+      </div>
+
+      {/* Progress */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-20 h-[1.5px] overflow-hidden z-10 bg-[#D4D3CE]">
+        <div ref={progressRef} className="h-full bg-[#1A1A18]/40 origin-left" style={{ transform: "scaleX(0)" }} />
       </div>
     </section>
   )
 }
-

@@ -4,49 +4,149 @@
 
 @layer base {
   :root {
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Tinted neutrals — warm undertone for psychology/wellness */
+    --background: 40 10% 99%;
+    --foreground: 30 10% 6%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card: 40 10% 100%;
+    --card-foreground: 30 10% 6%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover: 40 10% 100%;
+    --popover-foreground: 30 10% 6%;
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 30 8% 10%;
+    --primary-foreground: 40 10% 98%;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 35 8% 95%;
+    --secondary-foreground: 30 8% 10%;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: 35 6% 94%;
+    --muted-foreground: 30 4% 46%;
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 35 6% 94%;
+    --accent-foreground: 30 8% 10%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --border: 35 8% 88%;
+    --input: 35 8% 88%;
+    --ring: 30 8% 10%;
+
+    /* Easing */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Surfaces — warm dark tones */
+    --dark-bg: #0C0B09;
+    --dark-surface: #141310;
+    --dark-elevated: #1C1B17;
+    --dark-border: rgba(255, 248, 230, 0.06);
+    --dark-border-hover: rgba(255, 248, 230, 0.12);
+
+    /* Accent — warm sage */
+    --sage: 152 20% 58%;
+    --sage-subtle: 152 15% 20%;
+  }
+}
+
+@layer components {
+  /* Premium beveled surface */
+  .brand-surface {
+    filter: brightness(1.08);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.2),
+      inset 0 -1px 0 0 rgba(0,0,0,0.08),
+      0 1px 3px rgba(0,0,0,0.06);
+    transition: all 0.2s var(--ease-out-quart);
+  }
+  .brand-surface:hover {
+    filter: brightness(1);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.12),
+      inset 0 -1px 0 0 rgba(0,0,0,0.15),
+      0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .brand-surface-dark {
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.08),
+      inset 0 -1px 0 0 rgba(0,0,0,0.25),
+      0 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.2s var(--ease-out-quart);
+  }
+  .brand-surface-dark:hover {
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.05),
+      inset 0 -1px 0 0 rgba(0,0,0,0.35),
+      0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Icon beveled look */
+  .icon-bevel {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      inset 0 -1px 0 rgba(0,0,0,0.2),
+      0 2px 6px rgba(0,0,0,0.25);
+    filter: brightness(1.08);
   }
 }
 
 @layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-x: hidden;
-    scrollbar-width: none;
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-x: hidden; scrollbar-width: none; }
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  h1, h2, h3, h4 {
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
 }
 
+/* Scrollbar */
+.scrollbar-thin { scrollbar-width: thin; scrollbar-color: hsl(var(--border)) transparent; }
+.scrollbar-thin::-webkit-scrollbar { width: 5px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background-color: hsl(var(--border)); border-radius: 3px; }
+
+/* Hide Spline watermark */
+[data-logo],
+a[href*="spline.design"],
+canvas + a,
+canvas ~ a,
+canvas ~ div > a[href*="spline"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}

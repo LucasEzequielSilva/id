@@ -18,24 +18,37 @@ export function TestimonialCard({ name, role, content, index }: TestimonialCardP
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] }}
     >
-      <div className="bg-white rounded-lg p-8 h-full border border-neutral-200 hover:border-neutral-300 transition-colors">
-        <div className="flex gap-1 mb-4">
+      <div className="
+        h-full rounded-2xl p-8
+        bg-white
+        border border-black/[0.08]
+        shadow-[0_1px_2px_rgba(0,0,0,0.02)]
+        hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)]
+        hover:border-black/[0.12]
+        transition-all duration-200
+      ">
+        <div className="flex gap-1 mb-5">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <Star
+              key={i}
+              className="
+                w-4 h-4 fill-amber-400 text-amber-400
+                drop-shadow-[0_1px_2px_rgba(245,158,11,0.3)]
+              "
+            />
           ))}
         </div>
-        <p className="text-neutral-600 mb-6">{content}</p>
-        <div className="flex items-center gap-3">
+        <p className="text-neutral-600 mb-6 leading-relaxed text-[15px]">&ldquo;{content}&rdquo;</p>
+        <div className="flex items-center gap-3 pt-4 border-t border-black/[0.04]">
           <GenericAvatar />
           <div>
-            <p className="font-medium text-neutral-900">{name}</p>
-            <p className="text-sm text-neutral-500">{role}</p>
+            <p className="font-semibold text-neutral-900 text-sm">{name}</p>
+            <p className="text-xs text-neutral-400">{role}</p>
           </div>
         </div>
       </div>
     </motion.div>
   )
 }
-
