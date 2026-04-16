@@ -35,10 +35,14 @@ const fadeIn = {
 export default function Home() {
   const { t, language } = useTranslations()
   const splineCanvasRef = useRef<HTMLCanvasElement>(null)
+  const splineMobileRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    if (!splineCanvasRef.current) return
-    const app = new Application(splineCanvasRef.current)
+    // Detect mobile
+    const isMobile = window.innerWidth < 768
+    const canvas = isMobile ? splineMobileRef.current : splineCanvasRef.current
+    if (!canvas) return
+    const app = new Application(canvas)
     app.load("/scene-clean.splinecode")
     return () => { app.dispose() }
   }, [])
@@ -74,14 +78,14 @@ export default function Home() {
       <Navbar />
 
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-screen flex items-center bg-[#fafaf8] overflow-hidden">
-        {/* Spline 3D — all devices, behind everything */}
-        <div className="absolute inset-0 z-[0] pointer-events-none">
+      <section className="relative min-h-screen bg-[#fafaf8] overflow-hidden">
+        {/* Desktop: Spline as absolute background (canvas shared, positioned via CSS) */}
+        <div className="absolute inset-0 z-[0] pointer-events-none hidden md:block">
           <canvas ref={splineCanvasRef} className="w-full h-full" aria-hidden="true" style={{ background: "#fafaf8" }} />
         </div>
 
-        {/* Fade overlay so Spline doesn't overpower text on mobile */}
-        <div className="absolute inset-0 z-[1] pointer-events-none bg-[#fafaf8]/40 md:bg-[#fafaf8]/20" />
+        {/* Desktop fade overlay */}
+        <div className="absolute inset-0 z-[1] pointer-events-none hidden md:block bg-[#fafaf8]/20" />
 
         {/* Sky gradient top → transparent bottom */}
         <div
@@ -123,37 +127,50 @@ export default function Home() {
           />
         </div>
 
-        {/* Spline watermark cover */}
-        <div className="absolute bottom-0 right-0 z-[10] w-[220px] h-[60px] pointer-events-none select-none" style={{ background: "#fafaf8" }} aria-hidden="true" />
+        {/* Spline watermark cover — desktop only */}
+        <div className="absolute bottom-0 right-0 z-[10] w-[220px] h-[60px] pointer-events-none select-none hidden md:block" style={{ background: "#fafaf8" }} aria-hidden="true" />
 
-        <div className="relative z-[20] container mx-auto px-4 md:px-8">
-          <div className="hero-badge opacity-0 mb-4">
-            <span className="inline-flex items-center gap-2 text-[13px] text-[#8A8A84] tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
-              {t("hero.schedule")}{" "}
-              {language === "es"
-                ? new Date().toLocaleString("es-ES", { month: "long" }).toUpperCase()
-                : new Date().toLocaleString("en-US", { month: "long" }).toUpperCase()}{" "}
-              {t("hero.open")}
-            </span>
+        {/* Hero content: text top + spline bottom on mobile, text left on desktop */}
+        <div className="relative z-[20] flex flex-col min-h-screen">
+          {/* Text */}
+          <div className="flex-1 flex items-center pt-24 md:pt-0">
+            <div className="container mx-auto px-4 md:px-8">
+              <div className="hero-badge opacity-0 mb-4">
+                <span className="inline-flex items-center gap-2 text-[13px] text-[#8A8A84] tracking-wide">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
+                  {t("hero.schedule")}{" "}
+                  {language === "es"
+                    ? new Date().toLocaleString("es-ES", { month: "long" }).toUpperCase()
+                    : new Date().toLocaleString("en-US", { month: "long" }).toUpperCase()}{" "}
+                  {t("hero.open")}
+                </span>
+              </div>
+
+              <h1
+                className="hero-title opacity-0 text-[clamp(2rem,4.5vw,3rem)] font-medium tracking-tighter leading-[1.2] mb-3 max-w-2xl text-[#1A1A18]"
+                style={{
+                  maskImage: "repeating-linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,1) 55%, rgba(0,0,0,1) 100%)",
+                  maskSize: "100% 1.2em",
+                  WebkitMaskImage: "repeating-linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,1) 55%, rgba(0,0,0,1) 100%)",
+                  WebkitMaskSize: "100% 1.2em",
+                }}
+              >
+                {t("hero.title")}
+              </h1>
+              <p className="hero-sub opacity-0 text-[#6B6B66] mb-8 max-w-md text-base leading-relaxed">
+                {t("hero.subtitle")}
+              </p>
+              <div className="hero-cta opacity-0">
+                <WhatsAppButton variant="hero" />
+              </div>
+            </div>
           </div>
 
-          <h1
-            className="hero-title opacity-0 text-[clamp(2rem,4.5vw,3rem)] font-medium tracking-tighter leading-[1.2] mb-3 max-w-2xl text-[#1A1A18]"
-            style={{
-              maskImage: "repeating-linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,1) 55%, rgba(0,0,0,1) 100%)",
-              maskSize: "100% 1.2em",
-              WebkitMaskImage: "repeating-linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,1) 55%, rgba(0,0,0,1) 100%)",
-              WebkitMaskSize: "100% 1.2em",
-            }}
-          >
-            {t("hero.title")}
-          </h1>
-          <p className="hero-sub opacity-0 text-[#6B6B66] mb-8 max-w-md text-base leading-relaxed">
-            {t("hero.subtitle")}
-          </p>
-          <div className="hero-cta opacity-0">
-            <WhatsAppButton variant="hero" />
+          {/* Mobile Spline cube — below text */}
+          <div className="relative w-full h-[300px] md:hidden">
+            <canvas ref={splineMobileRef} className="w-full h-full" aria-hidden="true" style={{ background: "#fafaf8" }} />
+            {/* Watermark cover mobile */}
+            <div className="absolute bottom-0 right-0 w-[180px] h-[50px] pointer-events-none select-none" style={{ background: "#fafaf8" }} aria-hidden="true" />
           </div>
         </div>
       </section>
