@@ -121,7 +121,7 @@ export default function Home() {
         </div>
 
         {/* Spline watermark cover */}
-        <div className="absolute bottom-0 right-0 z-[5] w-[200px] h-[50px] hidden md:block pointer-events-none select-none" style={{ background: "#fafaf8" }} aria-hidden="true" />
+        <div className="absolute bottom-0 right-0 z-[5] w-[220px] h-[60px] hidden md:block pointer-events-none select-none" style={{ background: "#fafaf8" }} aria-hidden="true" />
 
         <div className="relative z-20 container mx-auto px-4 md:px-8">
           <div className="hero-badge opacity-0 mb-4">
