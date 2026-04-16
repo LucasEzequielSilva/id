@@ -14,7 +14,7 @@ export function WhatsAppButton({ size = "default", variant = "default" }: WhatsA
 
   return (
     <motion.a
-      href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+      href="https://wa.me/5493885171841"
       className={`
         inline-flex items-center justify-center gap-2
         rounded-full font-medium

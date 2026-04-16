@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useTranslations } from "@/lib/i18n"
-import { Twitter, Instagram, Linkedin } from "lucide-react"
+import { Phone } from "lucide-react"
 
 export function FloatingFooter({ language: languageProp, bgColor = "#f5f4f0" }: { language?: string; bgColor?: string }) {
   const { t, language: contextLanguage } = useTranslations()
@@ -56,17 +56,10 @@ export function FloatingFooter({ language: languageProp, bgColor = "#f5f4f0" }: 
                 Dr. Siufi 115<br />
                 Jujuy, Argentina
               </p>
-              <div className="flex gap-2">
-                {[
-                  { Icon: Twitter, label: "Twitter" },
-                  { Icon: Instagram, label: "Instagram" },
-                  { Icon: Linkedin, label: "LinkedIn" },
-                ].map(({ Icon, label }, i) => (
-                  <a key={i} href="#" aria-label={label} className="w-10 h-10 rounded-full flex items-center justify-center text-white/20 hover:text-white/45 border border-white/[0.06] transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-sky-500/50 focus-visible:outline-none">
-                    <Icon className="w-4 h-4" />
-                  </a>
-                ))}
-              </div>
+              <a href="https://wa.me/5493885171841" aria-label="WhatsApp" className="inline-flex items-center gap-2 text-white/35 hover:text-white/60 text-sm transition-colors duration-200">
+                <Phone className="w-4 h-4" />
+                +54 9 3885 17-1841
+              </a>
             </div>
           </div>
         </div>
