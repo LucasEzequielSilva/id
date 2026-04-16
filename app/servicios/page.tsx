@@ -30,7 +30,7 @@ export default function ServiciosPage() {
       {/* Hero */}
       <section className="pt-36 pb-28">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div className="max-w-2xl" initial="hidden" animate="visible" variants={fadeIn}>
+          <motion.div className="max-w-2xl mx-auto text-center" initial="hidden" animate="visible" variants={fadeIn}>
             <p className="text-sm font-medium tracking-widest uppercase mb-4 text-[#7A8B6F]">
               {language === "es" ? "Servicios" : "Services"}
             </p>

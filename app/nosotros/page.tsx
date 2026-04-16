@@ -36,7 +36,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="container relative z-20 mx-auto px-4 md:px-8">
-          <motion.div className="max-w-2xl" initial="hidden" animate="visible" variants={fadeIn}>
+          <motion.div className="max-w-2xl mx-auto text-center" initial="hidden" animate="visible" variants={fadeIn}>
             <p className="text-sm font-medium tracking-widest uppercase mb-4 text-white/50">
               {language === "es" ? "Sobre nosotros" : "About us"}
             </p>
@@ -71,7 +71,7 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-28 bg-[#ECEAE4]">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div className="max-w-xl mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+          <motion.div className="max-w-xl mx-auto text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
             <p className="text-sm font-medium tracking-widest uppercase mb-4 text-[#7A8B6F]">
               {language === "es" ? "Equipo" : "Team"}
             </p>
@@ -79,31 +79,29 @@ export default function AboutPage() {
             <p className="text-[#6B6B66]">{t("aboutPage.team.description")}</p>
           </motion.div>
           <motion.div
-            className="grid md:grid-cols-2 gap-12 items-center max-w-4xl"
+            className="max-w-md mx-auto text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } } }}
           >
-            <div className="overflow-hidden rounded-2xl aspect-[3/4] relative" style={{ border: "1px solid rgba(255,248,230,0.04)" }}>
-              <img src={team[0].image} alt={team[0].name} loading="lazy" className="w-full h-full object-cover" />
+            <div className="overflow-hidden rounded-2xl aspect-square w-48 h-48 mx-auto mb-6 bg-[#E5E4DF] flex items-center justify-center" style={{ border: "1px solid rgba(255,248,230,0.04)" }}>
+              <span className="text-4xl font-medium text-[#8A8A84]">AP</span>
             </div>
-            <div>
-              <h3 className="text-xl font-medium text-[#1A1A18] mb-1">{team[0].name}</h3>
-              <p className="text-sm text-[#7A8B6F] font-medium mb-4 tracking-wide uppercase">{team[0].role}</p>
-              <p className="text-[#6B6B66] leading-[1.7] mb-6">
-                Psicóloga especializada en psicología forense con más de 35 años de experiencia en evaluaciones psicológicas y pericias. Líder del equipo de CENTRO PERICIAL PSICOLÓGICO ID.
-              </p>
-              <div className="flex items-center gap-6 pt-5 border-t border-[#E5E4DF]">
-                <div>
-                  <p className="text-xs text-[#8A8A84] mb-1">Matrícula Provincial</p>
-                  <p className="text-sm font-medium text-[#1A1A18]">098</p>
-                </div>
-                <div className="w-px h-8 bg-[#E5E4DF]" />
-                <div>
-                  <p className="text-xs text-[#8A8A84] mb-1">Matrícula Nacional</p>
-                  <p className="text-sm font-medium text-[#1A1A18]">239330</p>
-                </div>
+            <h3 className="text-xl font-medium text-[#1A1A18] mb-1">{team[0].name}</h3>
+            <p className="text-sm text-[#7A8B6F] font-medium mb-4 tracking-wide uppercase">{team[0].role}</p>
+            <p className="text-[#6B6B66] leading-[1.7] mb-6">
+              Psicóloga especializada en psicología forense con más de 35 años de experiencia en evaluaciones psicológicas y pericias. Líder del equipo de CENTRO PERICIAL PSICOLÓGICO ID.
+            </p>
+            <div className="flex items-center justify-center gap-6 pt-5 border-t border-[#E5E4DF]">
+              <div>
+                <p className="text-xs text-[#8A8A84] mb-1">Matrícula Provincial</p>
+                <p className="text-sm font-medium text-[#1A1A18]">098</p>
+              </div>
+              <div className="w-px h-8 bg-[#E5E4DF]" />
+              <div>
+                <p className="text-xs text-[#8A8A84] mb-1">Matrícula Nacional</p>
+                <p className="text-sm font-medium text-[#1A1A18]">239330</p>
               </div>
             </div>
           </motion.div>
@@ -113,7 +111,7 @@ export default function AboutPage() {
       {/* Values */}
       <section className="py-28 bg-[#F5F4F0]">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div className="max-w-xl mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+          <motion.div className="max-w-xl mx-auto text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
             <h2 className="text-2xl md:text-[2rem] text-[#1A1A18] font-medium">{t("aboutPage.values.title")}</h2>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">

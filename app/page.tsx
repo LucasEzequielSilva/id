@@ -219,7 +219,7 @@ export default function Home() {
       {/* ═══ CONTACT CTA ═══ */}
       <section className="py-28 md:py-36 bg-[#fafaf8]">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div className="max-w-xl" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeIn}>
+          <motion.div className="max-w-xl mx-auto text-center" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeIn}>
             <p className="text-sm font-medium tracking-widest uppercase mb-4 text-[#7A8B6F]">
               {language === "es" ? "Contacto" : "Contact"}
             </p>
