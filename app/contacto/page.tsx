@@ -88,7 +88,7 @@ export default function ContactPage() {
                 <h2 className="text-base font-medium text-[#1A1A18] mb-2">{t("contact.info.title")}</h2>
                 {[
                   { icon: MapPin, text: "Dr. Siufi 115, Barrio Bajo la Viña, San Salvador de Jujuy, Jujuy, Argentina" },
-                  { icon: Phone, text: "+54 (388) 123-4567" },
+                  { icon: Phone, text: "+54 9 3885 17-1841" },
                   { icon: Mail, text: "info@centroid.com.ar" },
                 ].map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-start gap-3">
