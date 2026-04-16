@@ -88,8 +88,8 @@ export default function AboutPage() {
             viewport={{ once: true }}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } } }}
           >
-            <div className="overflow-hidden rounded-2xl aspect-square w-48 h-48 mx-auto mb-6 bg-[#E5E4DF] flex items-center justify-center" style={{ border: "1px solid rgba(255,248,230,0.04)" }}>
-              <img src="/founder.jpg" alt="Lic. Alejandra del Valle Peralta" className="w-48 h-48 rounded-full object-cover object-top" />
+            <div className="overflow-hidden rounded-full w-56 h-56 mx-auto mb-6" style={{ border: "1px solid rgba(255,248,230,0.04)" }}>
+              <img src="/founder.jpg" alt="Lic. Alejandra del Valle Peralta" className="w-full h-full object-cover" style={{ objectPosition: "center 25%" }} />
             </div>
             <h3 className="text-xl font-medium text-[#1A1A18] mb-1">{team[0].name}</h3>
             <p className="text-sm text-[#7A8B6F] font-medium mb-4 tracking-wide uppercase">{team[0].role}</p>
