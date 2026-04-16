@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
+import { Application } from "@splinetool/runtime"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -33,6 +34,14 @@ const fadeIn = {
 
 export default function Home() {
   const { t, language } = useTranslations()
+  const splineCanvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    if (!splineCanvasRef.current) return
+    const app = new Application(splineCanvasRef.current)
+    app.load("/scene-clean.splinecode")
+    return () => { app.dispose() }
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -104,6 +113,11 @@ export default function Home() {
               transform: "rotate(-15deg)",
             }}
           />
+        </div>
+
+        {/* Spline 3D — desktop only */}
+        <div className="absolute inset-0 z-[3] hidden md:block">
+          <canvas ref={splineCanvasRef} className="w-full h-full" aria-hidden="true" style={{ background: "transparent" }} />
         </div>
 
         <div className="relative z-20 container mx-auto px-4 md:px-8">
