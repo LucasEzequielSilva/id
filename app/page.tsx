@@ -74,10 +74,50 @@ export default function Home() {
       <Navbar />
 
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-screen flex items-center bg-[#fafaf8]">
+      <section className="relative min-h-screen flex items-center bg-[#fafaf8] overflow-hidden">
+        {/* Sky gradient top → transparent bottom */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background: "linear-gradient(to bottom, rgba(56,189,248,0.08) 0%, rgba(56,189,248,0.03) 30%, transparent 60%)",
+          }}
+        />
+
+        {/* Diagonal light rays */}
+        <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
+          <div
+            className="absolute -top-[20%] -left-[10%] w-[40%] h-[140%] opacity-[0.04]"
+            style={{
+              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.8) 48%, rgba(255,255,255,0.6) 50%, rgba(56,189,248,0.8) 52%, transparent 70%)",
+              transform: "rotate(-15deg)",
+            }}
+          />
+          <div
+            className="absolute -top-[20%] left-[15%] w-[30%] h-[140%] opacity-[0.03]"
+            style={{
+              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.6) 48%, rgba(255,255,255,0.5) 50%, rgba(56,189,248,0.6) 52%, transparent 70%)",
+              transform: "rotate(-15deg)",
+            }}
+          />
+          <div
+            className="absolute -top-[20%] left-[40%] w-[25%] h-[140%] opacity-[0.025]"
+            style={{
+              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.5) 48%, rgba(255,255,255,0.4) 50%, rgba(56,189,248,0.5) 52%, transparent 70%)",
+              transform: "rotate(-15deg)",
+            }}
+          />
+          <div
+            className="absolute -top-[20%] left-[60%] w-[35%] h-[140%] opacity-[0.02]"
+            style={{
+              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.4) 48%, rgba(255,255,255,0.3) 50%, rgba(56,189,248,0.4) 52%, transparent 70%)",
+              transform: "rotate(-15deg)",
+            }}
+          />
+        </div>
+
         {/* Spline — desktop only */}
         <div className="absolute inset-0 hidden md:block">
-          <canvas ref={splineCanvasRef} className="w-full h-full" aria-hidden="true" role="presentation" style={{ background: "#fafaf8" }} />
+          <canvas ref={splineCanvasRef} className="w-full h-full" aria-hidden="true" role="presentation" style={{ background: "transparent" }} />
         </div>
 
         {/* Spline watermark cover — desktop only */}
