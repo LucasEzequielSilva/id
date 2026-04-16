@@ -93,10 +93,6 @@ export function HorizontalScroll() {
         <div className="flex-shrink-0 w-[15vw]" />
       </div>
 
-      {/* Progress */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-20 h-[1.5px] overflow-hidden z-10 bg-[#D4D3CE]">
-        <div ref={progressRef} className="h-full bg-[#1A1A18]/40 origin-left" style={{ transform: "scaleX(0)" }} />
-      </div>
     </section>
   )
 }
