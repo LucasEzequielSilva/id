@@ -16,10 +16,7 @@ export default function AboutPage() {
   const { t, language } = useTranslations()
 
   const team = [
-    { name: "Sarah Johnson", role: "CLINICAL DIRECTOR", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-AyqswlAp6ubY05GMEFuofBsRucxPip.png" },
-    { name: "Michael Anderson", role: "SENIOR PSYCHOLOGIST", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1D9UOH76g7XR0LRRir1zQlMdmk8qkw.png" },
-    { name: "David Miller", role: "FORENSIC PSYCHOLOGIST", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rtPD8bqBnxbVuCrlAIjriXZkJ00TVL.png" },
-    { name: "James Wilson", role: "CLINICAL PSYCHOLOGIST", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-GxdRO1d6wozOpGxMHcwW2TYysUOAaj.png" },
+    { name: "Lic. Alejandra del Valle Peralta", role: "FUNDADORA Y DIRECTORA", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-AyqswlAp6ubY05GMEFuofBsRucxPip.png" },
   ]
 
   const valueIcons = [Brain, Heart, Shield, Lightbulb]
@@ -81,26 +78,35 @@ export default function AboutPage() {
             <h2 className="text-2xl md:text-[2rem] mb-4 text-[#1A1A18] font-medium">{t("aboutPage.team.title")}</h2>
             <p className="text-[#6B6B66]">{t("aboutPage.team.description")}</p>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                className="group"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] } } }}
-              >
-                <div className="overflow-hidden rounded-2xl aspect-square relative" style={{ border: "1px solid rgba(255,248,230,0.04)" }}>
-                  <img src={member.image} alt={member.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <motion.div
+            className="grid md:grid-cols-2 gap-12 items-center max-w-4xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } } }}
+          >
+            <div className="overflow-hidden rounded-2xl aspect-[3/4] relative" style={{ border: "1px solid rgba(255,248,230,0.04)" }}>
+              <img src={team[0].image} alt={team[0].name} loading="lazy" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 className="text-xl font-medium text-[#1A1A18] mb-1">{team[0].name}</h3>
+              <p className="text-sm text-[#7A8B6F] font-medium mb-4 tracking-wide uppercase">{team[0].role}</p>
+              <p className="text-[#6B6B66] leading-[1.7] mb-6">
+                Psicóloga especializada en psicología forense con más de 35 años de experiencia en evaluaciones psicológicas y pericias. Líder del equipo de CENTRO PERICIAL PSICOLÓGICO ID.
+              </p>
+              <div className="flex items-center gap-6 pt-5 border-t border-[#E5E4DF]">
+                <div>
+                  <p className="text-xs text-[#8A8A84] mb-1">Matrícula Provincial</p>
+                  <p className="text-sm font-medium text-[#1A1A18]">098</p>
                 </div>
-                <div className="mt-4">
-                  <h3 className="text-base font-medium text-[#1A1A18]">{member.name}</h3>
-                  <p className="text-xs text-[#6B6B66] mt-1 tracking-wide">{member.role}</p>
+                <div className="w-px h-8 bg-[#E5E4DF]" />
+                <div>
+                  <p className="text-xs text-[#8A8A84] mb-1">Matrícula Nacional</p>
+                  <p className="text-sm font-medium text-[#1A1A18]">239330</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
