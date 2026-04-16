@@ -7,6 +7,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Expose Lenis instance globally for ScrollToTop
+declare global {
+  interface Window {
+    __lenis?: Lenis
+  }
+}
+
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null)
 
@@ -18,8 +25,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     })
 
     lenisRef.current = lenis
+    window.__lenis = lenis
 
-    // Connect Lenis to GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update)
 
     gsap.ticker.add((time) => {
@@ -30,6 +37,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return () => {
       lenis.destroy()
       lenisRef.current = null
+      window.__lenis = undefined
     }
   }, [])
 
