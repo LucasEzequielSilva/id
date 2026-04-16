@@ -236,7 +236,7 @@ export default function Home() {
       <FaqSection />
 
       {/* ═══ FOOTER ═══ */}
-      <FloatingFooter language={language} />
+      <FloatingFooter language={language} bgColor="#ECEAE4" />
     </div>
   )
 }
