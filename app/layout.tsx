@@ -11,11 +11,11 @@ const ScrollToTop = dynamic(() => import("@/components/scroll-to-top").then((mod
 const SmoothScroll = dynamic(() => import("@/components/smooth-scroll").then((mod) => mod.SmoothScroll), { ssr: false })
 
 export const metadata = {
-  title: "Centro ID - Psicología y Pericias",
-  description: "Centro ID: servicios psicológicos profesionales, terapia y pericias en Jujuy, Argentina.",
+  title: "Centro ID - Psicología, Terapia y Pericias en Jujuy",
+  description: "Centro ID: servicios psicológicos profesionales, terapia virtual y presencial, evaluaciones psicológicas y pericias forenses en San Salvador de Jujuy, Argentina.",
   openGraph: {
-    title: "Centro ID - Psicología y Pericias",
-    description: "Tu espacio para el bienestar psicológico. Servicios profesionales en Jujuy.",
+    title: "Centro ID - Psicología, Terapia y Pericias en Jujuy",
+    description: "Tu espacio para el bienestar psicológico. Terapia, evaluaciones y pericias con más de 35 años de experiencia. San Salvador de Jujuy, Argentina.",
     url: "https://www.centroid.com.ar",
     siteName: "Centro ID",
     images: [
@@ -31,8 +31,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Centro ID - Psicología y Pericias",
-    description: "Tu espacio para el bienestar psicológico. Servicios profesionales en Jujuy.",
+    title: "Centro ID - Psicología, Terapia y Pericias en Jujuy",
+    description: "Tu espacio para el bienestar psicológico. Terapia, evaluaciones y pericias con más de 35 años de experiencia. San Salvador de Jujuy, Argentina.",
   },
 }
 
