@@ -1,8 +1,11 @@
 import type { ReactNode } from "react"
+import { DM_Sans } from "next/font/google"
 import { LanguageProvider } from "@/components/language-provider"
 import "@/app/globals.css"
 import { Toaster } from "sonner"
 import dynamic from "next/dynamic"
+
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-dm-sans" })
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top").then((mod) => mod.ScrollToTop), { ssr: false })
 const SmoothScroll = dynamic(() => import("@/components/smooth-scroll").then((mod) => mod.SmoothScroll), { ssr: false })
@@ -46,10 +49,9 @@ export default function RootLayout({
           href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/iso-main-MbvhAnQubqB88QJVocdZEuO1gSSywS.svg"
           type="image/svg+xml"
         />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
         <noscript><style>{`.hero-title, .hero-sub, .hero-badge, .hero-cta, .faq-item { opacity: 1 !important; }`}</style></noscript>
       </head>
-      <body>
+      <body className={dmSans.variable}>
         <LanguageProvider>
           <SmoothScroll>
             <ScrollToTop />

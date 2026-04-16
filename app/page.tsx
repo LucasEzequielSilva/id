@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { Application } from "@splinetool/runtime"
+import { useEffect } from "react"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -34,14 +33,6 @@ const fadeIn = {
 
 export default function Home() {
   const { t, language } = useTranslations()
-  const splineCanvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    if (!splineCanvasRef.current) return
-    const app = new Application(splineCanvasRef.current)
-    app.load("/scene-clean.splinecode")
-    return () => { app.dispose() }
-  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -86,51 +77,34 @@ export default function Home() {
         {/* Diagonal light rays */}
         <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
           <div
-            className="absolute -top-[20%] -left-[10%] w-[50%] h-[140%] opacity-[0.04]"
+            className="absolute -top-[20%] -left-[10%] w-[50%] h-[140%] opacity-[0.07]"
             style={{
               background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.8) 46%, rgba(255,255,255,0.6) 50%, rgba(56,189,248,0.8) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
           <div
-            className="absolute -top-[20%] left-[15%] w-[40%] h-[140%] opacity-[0.03]"
+            className="absolute -top-[20%] left-[15%] w-[40%] h-[140%] opacity-[0.055]"
             style={{
               background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.6) 46%, rgba(255,255,255,0.5) 50%, rgba(56,189,248,0.6) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
           <div
-            className="absolute -top-[20%] left-[40%] w-[35%] h-[140%] opacity-[0.025]"
+            className="absolute -top-[20%] left-[40%] w-[35%] h-[140%] opacity-[0.045]"
             style={{
               background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.5) 46%, rgba(255,255,255,0.4) 50%, rgba(56,189,248,0.5) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
           <div
-            className="absolute -top-[20%] left-[60%] w-[45%] h-[140%] opacity-[0.02]"
+            className="absolute -top-[20%] left-[60%] w-[45%] h-[140%] opacity-[0.035]"
             style={{
               background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.4) 46%, rgba(255,255,255,0.3) 50%, rgba(56,189,248,0.4) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
         </div>
-
-        {/* Spline — desktop only */}
-        <div className="absolute inset-0 hidden md:block">
-          <canvas ref={splineCanvasRef} className="w-full h-full" aria-hidden="true" role="presentation" style={{ background: "transparent" }} />
-        </div>
-
-        {/* Spline watermark cover — desktop only */}
-        <div
-          className="absolute bottom-4 right-4 z-[50] select-none w-[180px] h-[40px] rounded-md hidden md:block"
-          style={{
-            background: "#fafaf8",
-            pointerEvents: "none",
-            userSelect: "none",
-            WebkitUserSelect: "none",
-          }}
-          aria-hidden="true"
-        />
 
         <div className="relative z-20 container mx-auto px-4 md:px-8">
           <div className="hero-badge opacity-0 mb-4">

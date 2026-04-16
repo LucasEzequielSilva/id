@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { FloatingFooter } from "@/components/floating-footer"
@@ -29,10 +30,12 @@ export default function AboutPage() {
       <section className="relative pt-36 pb-28 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[#0C0B09]/70 z-10" />
-          <img
+          <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-6EQZ5xJD9n2w3sHE8ygv65ZP4WuoA3.png"
             alt="Our facility"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
         </div>
         <div className="container relative z-20 mx-auto px-4 md:px-8">
@@ -54,7 +57,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div className="order-2 lg:order-1" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
               <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
-                <img src="https://images.unsplash.com/photo-1551836022-8b2858c9c69b?auto=format&fit=crop&q=80" alt="Sesión de terapia profesional en Centro ID" loading="lazy" className="w-full h-full object-cover" />
+                <Image src="https://images.unsplash.com/photo-1551836022-8b2858c9c69b?auto=format&fit=crop&q=80" alt="Sesión de terapia profesional en Centro ID" fill className="object-cover" />
               </div>
             </motion.div>
             <motion.div className="order-1 lg:order-2" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>

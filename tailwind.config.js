@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
+        sans: ["var(--font-dm-sans)", "DM Sans", "sans-serif"],
       },
       animation: {
         marquee: "marquee 25s linear infinite",
