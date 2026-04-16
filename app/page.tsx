@@ -86,30 +86,30 @@ export default function Home() {
         {/* Diagonal light rays */}
         <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
           <div
-            className="absolute -top-[20%] -left-[10%] w-[40%] h-[140%] opacity-[0.04]"
+            className="absolute -top-[20%] -left-[10%] w-[50%] h-[140%] opacity-[0.04]"
             style={{
-              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.8) 48%, rgba(255,255,255,0.6) 50%, rgba(56,189,248,0.8) 52%, transparent 70%)",
+              background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.8) 46%, rgba(255,255,255,0.6) 50%, rgba(56,189,248,0.8) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
           <div
-            className="absolute -top-[20%] left-[15%] w-[30%] h-[140%] opacity-[0.03]"
+            className="absolute -top-[20%] left-[15%] w-[40%] h-[140%] opacity-[0.03]"
             style={{
-              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.6) 48%, rgba(255,255,255,0.5) 50%, rgba(56,189,248,0.6) 52%, transparent 70%)",
+              background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.6) 46%, rgba(255,255,255,0.5) 50%, rgba(56,189,248,0.6) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
           <div
-            className="absolute -top-[20%] left-[40%] w-[25%] h-[140%] opacity-[0.025]"
+            className="absolute -top-[20%] left-[40%] w-[35%] h-[140%] opacity-[0.025]"
             style={{
-              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.5) 48%, rgba(255,255,255,0.4) 50%, rgba(56,189,248,0.5) 52%, transparent 70%)",
+              background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.5) 46%, rgba(255,255,255,0.4) 50%, rgba(56,189,248,0.5) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
           <div
-            className="absolute -top-[20%] left-[60%] w-[35%] h-[140%] opacity-[0.02]"
+            className="absolute -top-[20%] left-[60%] w-[45%] h-[140%] opacity-[0.02]"
             style={{
-              background: "linear-gradient(115deg, transparent 30%, rgba(56,189,248,0.4) 48%, rgba(255,255,255,0.3) 50%, rgba(56,189,248,0.4) 52%, transparent 70%)",
+              background: "linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.4) 46%, rgba(255,255,255,0.3) 50%, rgba(56,189,248,0.4) 54%, transparent 75%)",
               transform: "rotate(-15deg)",
             }}
           />
