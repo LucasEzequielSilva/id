@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro ID - Thumbnail</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    position: relative;
+    background: #fafaf8;
+  }
+
+  /* Sky gradient top to transparent */
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(56,189,248,0.12) 0%, rgba(56,189,248,0.04) 35%, transparent 65%);
+  }
+
+  /* Light rays */
+  .rays {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .ray {
+    position: absolute;
+    top: -30%;
+    height: 160%;
+    transform: rotate(-15deg);
+  }
+
+  .ray-1 {
+    left: -5%;
+    width: 50%;
+    opacity: 0.07;
+    background: linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.8) 46%, rgba(255,255,255,0.7) 50%, rgba(56,189,248,0.8) 54%, transparent 75%);
+  }
+
+  .ray-2 {
+    left: 20%;
+    width: 40%;
+    opacity: 0.05;
+    background: linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.6) 46%, rgba(255,255,255,0.5) 50%, rgba(56,189,248,0.6) 54%, transparent 75%);
+  }
+
+  .ray-3 {
+    left: 45%;
+    width: 35%;
+    opacity: 0.04;
+    background: linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.5) 46%, rgba(255,255,255,0.4) 50%, rgba(56,189,248,0.5) 54%, transparent 75%);
+  }
+
+  .ray-4 {
+    left: 65%;
+    width: 45%;
+    opacity: 0.03;
+    background: linear-gradient(115deg, transparent 25%, rgba(56,189,248,0.4) 46%, rgba(255,255,255,0.3) 50%, rgba(56,189,248,0.4) 54%, transparent 75%);
+  }
+
+  /* Content */
+  .content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 80px;
+  }
+
+  /* Logo */
+  .logo {
+    height: 36px;
+    opacity: 0.7;
+    margin-bottom: 40px;
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #8A8A84;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0ea5e9;
+  }
+
+  /* Title */
+  .title {
+    font-size: 64px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: #1A1A18;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+
+  .title span {
+    color: #0ea5e9;
+  }
+
+  /* Subtitle */
+  .subtitle {
+    font-size: 18px;
+    color: #6B6B66;
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  /* URL badge */
+  .url {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    background: rgba(14,165,233,0.08);
+    border: 1px solid rgba(14,165,233,0.15);
+    font-size: 14px;
+    font-weight: 500;
+    color: #0ea5e9;
+    letter-spacing: 0.02em;
+  }
+
+  /* Decorative corner elements */
+  .corner-tl, .corner-br {
+    position: absolute;
+    z-index: 5;
+    width: 80px;
+    height: 80px;
+  }
+
+  .corner-tl {
+    top: 40px;
+    left: 40px;
+    border-top: 2px solid rgba(14,165,233,0.15);
+    border-left: 2px solid rgba(14,165,233,0.15);
+  }
+
+  .corner-br {
+    bottom: 40px;
+    right: 40px;
+    border-bottom: 2px solid rgba(14,165,233,0.15);
+    border-right: 2px solid rgba(14,165,233,0.15);
+  }
+</style>
+</head>
+<body>
+
+  <!-- Background effects -->
+  <div class="gradient-overlay"></div>
+  <div class="rays">
+    <div class="ray ray-1"></div>
+    <div class="ray ray-2"></div>
+    <div class="ray ray-3"></div>
+    <div class="ray ray-4"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <img
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dark%20logo-E60Ij7KTKR3YEOzHBXtXfiJvLji4tN.svg"
+      alt="Centro ID"
+      class="logo"
+    />
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Psicologia &middot; Pericias &middot; Terapia
+    </div>
+
+    <h1 class="title">
+      Tu espacio para el<br><span>bienestar psicologico</span>
+    </h1>
+
+    <p class="subtitle">
+      Servicios psicologicos profesionales con enfoque en la precision y la confianza. San Salvador de Jujuy.
+    </p>
+
+    <div class="url">centroid.com.ar</div>
+  </div>
+
+</body>
+</html>
