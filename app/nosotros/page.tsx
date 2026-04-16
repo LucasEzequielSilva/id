@@ -166,7 +166,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-28 bg-[#F5F4F0]">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div className="max-w-xl" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+          <motion.div className="max-w-xl mx-auto text-center flex flex-col items-center justify-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
             <h2 className="text-2xl md:text-[2rem] mb-5 text-[#1A1A18] font-medium">{t("aboutPage.cta.title")}</h2>
             <p className="text-[#6B6B66] mb-8">{t("aboutPage.cta.subtitle")}</p>
             <WhatsAppButton size="lg" />
