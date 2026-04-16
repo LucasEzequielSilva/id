@@ -35,14 +35,10 @@ const fadeIn = {
 export default function Home() {
   const { t, language } = useTranslations()
   const splineCanvasRef = useRef<HTMLCanvasElement>(null)
-  const splineMobileRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    // Detect mobile
-    const isMobile = window.innerWidth < 768
-    const canvas = isMobile ? splineMobileRef.current : splineCanvasRef.current
-    if (!canvas) return
-    const app = new Application(canvas)
+    if (!splineCanvasRef.current || window.innerWidth < 768) return
+    const app = new Application(splineCanvasRef.current)
     app.load("/scene-clean.splinecode")
     return () => { app.dispose() }
   }, [])
@@ -166,12 +162,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile Spline cube — below text */}
-          <div className="relative w-full h-[300px] md:hidden">
-            <canvas ref={splineMobileRef} className="w-full h-full" aria-hidden="true" style={{ background: "#fafaf8" }} />
-            {/* Watermark cover mobile */}
-            <div className="absolute bottom-0 right-0 w-[180px] h-[50px] pointer-events-none select-none" style={{ background: "#fafaf8" }} aria-hidden="true" />
-          </div>
         </div>
       </section>
 
