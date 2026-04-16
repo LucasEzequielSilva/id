@@ -31,7 +31,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[#0C0B09]/70 z-10" />
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-6EQZ5xJD9n2w3sHE8ygv65ZP4WuoA3.png"
+            src="/studio/exterior.png"
             alt="Our facility"
             fill
             priority
@@ -57,7 +57,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div className="order-2 lg:order-1" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
               <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
-                <Image src="https://images.unsplash.com/photo-1551836022-8b2858c9c69b?auto=format&fit=crop&q=80" alt="Sesión de terapia profesional en Centro ID" fill className="object-cover" />
+                <Image src="/studio/interior-2.png" alt="Sesión de terapia profesional en Centro ID" fill className="object-cover" />
               </div>
             </motion.div>
             <motion.div className="order-1 lg:order-2" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
@@ -89,7 +89,7 @@ export default function AboutPage() {
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } } }}
           >
             <div className="overflow-hidden rounded-2xl aspect-square w-48 h-48 mx-auto mb-6 bg-[#E5E4DF] flex items-center justify-center" style={{ border: "1px solid rgba(255,248,230,0.04)" }}>
-              <span className="text-4xl font-medium text-[#8A8A84]">AP</span>
+              <img src="/founder.jpg" alt="Lic. Alejandra del Valle Peralta" className="w-48 h-48 rounded-full object-cover object-top" />
             </div>
             <h3 className="text-xl font-medium text-[#1A1A18] mb-1">{team[0].name}</h3>
             <p className="text-sm text-[#7A8B6F] font-medium mb-4 tracking-wide uppercase">{team[0].role}</p>

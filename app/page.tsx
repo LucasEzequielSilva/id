@@ -54,10 +54,10 @@ export default function Home() {
   ]
 
   const features = [
-    { icon: Scale, label: t("about.features.legal"), image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=60" },
-    { icon: Shield, label: t("about.features.confidentiality"), image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=600&auto=format&fit=crop&q=60" },
-    { icon: GraduationCap, label: t("about.features.certified"), image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&auto=format&fit=crop&q=60" },
-    { icon: Globe2, label: t("about.features.global"), image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&auto=format&fit=crop&q=60" },
+    { icon: Scale, label: t("about.features.legal"), image: "/studio/IMG_8373.JPEG" },
+    { icon: Shield, label: t("about.features.confidentiality"), image: "/studio/IMG_8378.JPEG" },
+    { icon: GraduationCap, label: t("about.features.certified"), image: "/studio/interior-1.png" },
+    { icon: Globe2, label: t("about.features.global"), image: "/studio/exterior.png" },
   ]
 
   return (
