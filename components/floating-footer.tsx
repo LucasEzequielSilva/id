@@ -9,7 +9,7 @@ export function FloatingFooter({ language: languageProp }: { language?: string }
   const language = languageProp || contextLanguage
 
   return (
-    <footer className="relative z-10 px-4 md:px-6 pb-6 bg-[#ECEAE4]">
+    <footer className="relative z-10 px-4 md:px-6 pb-6 bg-[#f5f4f0]">
       <div className="mx-auto max-w-6xl bg-[#0C0B09] rounded-3xl overflow-hidden">
         {/* Top row — logo + links */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-10 p-8 md:p-10 pb-0 md:pb-0">
