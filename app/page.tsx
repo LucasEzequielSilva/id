@@ -74,7 +74,7 @@ export default function Home() {
       <Navbar />
 
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-screen flex items-end pb-12 md:items-end md:pb-20 bg-[#fafaf8]">
+      <section className="relative min-h-screen flex items-center bg-[#fafaf8]">
         {/* Spline — desktop only */}
         <div className="absolute inset-0 hidden md:block">
           <canvas ref={splineCanvasRef} className="w-full h-full" aria-hidden="true" role="presentation" style={{ background: "#fafaf8" }} />
