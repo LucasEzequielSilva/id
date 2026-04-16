@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "Centro ID",
     images: [
       {
-        url: "/thumbnail.html",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Centro ID - Psicología y Pericias",
