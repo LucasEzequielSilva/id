@@ -10,6 +10,27 @@ const SmoothScroll = dynamic(() => import("@/components/smooth-scroll").then((mo
 export const metadata = {
   title: "Centro ID - Psicología y Pericias",
   description: "Centro ID: servicios psicológicos profesionales, terapia y pericias en Jujuy, Argentina.",
+  openGraph: {
+    title: "Centro ID - Psicología y Pericias",
+    description: "Tu espacio para el bienestar psicológico. Servicios profesionales en Jujuy.",
+    url: "https://www.centroid.com.ar",
+    siteName: "Centro ID",
+    images: [
+      {
+        url: "/thumbnail.html",
+        width: 1200,
+        height: 630,
+        alt: "Centro ID - Psicología y Pericias",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Centro ID - Psicología y Pericias",
+    description: "Tu espacio para el bienestar psicológico. Servicios profesionales en Jujuy.",
+  },
 }
 
 export default function RootLayout({
