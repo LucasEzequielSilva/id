@@ -44,7 +44,7 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-tB2IAb0orDmcWbgZ2vH8HEhcDYV8dy.svg"
-                alt="Logo"
+                alt="Logo de Centro Pericial Psicológico ID"
                 className="h-8"
               />
             </Link>

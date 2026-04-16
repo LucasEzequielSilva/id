@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[#0C0B09]/70 z-10" />
           <Image
             src="/studio/exterior.png"
-            alt="Our facility"
+            alt="Exterior del Centro Pericial Psicológico ID en San Salvador de Jujuy"
             fill
             priority
             className="object-cover"
