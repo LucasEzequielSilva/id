@@ -17,10 +17,10 @@ export function HorizontalScroll() {
   const progressRef = useRef<HTMLDivElement>(null)
 
   const slides = [
-    { titleKey: "whyChooseUs.slides.professional.title", descriptionKey: "whyChooseUs.slides.professional.description" },
-    { titleKey: "whyChooseUs.slides.personalized.title", descriptionKey: "whyChooseUs.slides.personalized.description" },
-    { titleKey: "whyChooseUs.slides.global.title", descriptionKey: "whyChooseUs.slides.global.description" },
-    { titleKey: "whyChooseUs.slides.results.title", descriptionKey: "whyChooseUs.slides.results.description" },
+    { titleKey: "whyChooseUs.slides.professional.title", descriptionKey: "whyChooseUs.slides.professional.description", image: "/images/centro-id/why-us/professional.png" },
+    { titleKey: "whyChooseUs.slides.personalized.title", descriptionKey: "whyChooseUs.slides.personalized.description", image: "/images/centro-id/why-us/personalized.png" },
+    { titleKey: "whyChooseUs.slides.global.title", descriptionKey: "whyChooseUs.slides.global.description", image: "/images/centro-id/why-us/global.png" },
+    { titleKey: "whyChooseUs.slides.results.title", descriptionKey: "whyChooseUs.slides.results.description", image: "/images/centro-id/why-us/results.png" },
   ]
 
   useEffect(() => {
@@ -67,23 +67,33 @@ export function HorizontalScroll() {
           const Icon = slideIcons[i]
           return (
             <div key={i} className="flex-shrink-0 w-[82vw] md:w-[42vw] lg:w-[30vw] px-2 md:px-3">
-              <div className="relative h-[60vh] md:h-[65vh] rounded-2xl p-8 md:p-10 flex flex-col justify-between group transition-all duration-300 hover:translate-y-[-2px] bg-white border border-[#E5E4DF] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
-                <div className="flex items-start justify-between">
-                  <span className="text-[5rem] md:text-[6rem] font-bold leading-none tracking-tighter text-[#1A1A18]/[0.04] select-none">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#1A1A18]/30 bg-[#F5F4F0] border border-[#E5E4DF] transition-colors duration-200 group-hover:text-[#1A1A18]/50">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                </div>
+              <div className="relative h-[60vh] md:h-[65vh] rounded-2xl overflow-hidden group transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)]">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  style={{ backgroundImage: `url(${slide.image})` }}
+                />
+                <div className="absolute inset-0" style={{
+                  background: "linear-gradient(to bottom, rgba(12,11,9,0.55) 0%, rgba(12,11,9,0.35) 40%, rgba(12,11,9,0.9) 100%)"
+                }} />
 
-                <div>
-                  <h3 className="text-xl md:text-2xl text-[#1A1A18] font-medium tracking-tight mb-3 leading-tight">
-                    {t(slide.titleKey)}
-                  </h3>
-                  <p className="text-[#8A8A84] text-sm leading-relaxed">
-                    {t(slide.descriptionKey)}
-                  </p>
+                <div className="relative h-full p-8 md:p-10 flex flex-col justify-between">
+                  <div className="flex items-start justify-between">
+                    <span className="text-[5rem] md:text-[6rem] font-bold leading-none tracking-tighter text-white/[0.12] select-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white/80 bg-white/10 backdrop-blur-sm border border-white/15 transition-colors duration-200 group-hover:text-white">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl md:text-2xl text-white font-medium tracking-tight mb-3 leading-tight">
+                      {t(slide.titleKey)}
+                    </h3>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                      {t(slide.descriptionKey)}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

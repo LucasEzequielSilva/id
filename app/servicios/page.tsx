@@ -18,9 +18,9 @@ export default function ServiciosPage() {
   const { t, language } = useTranslations()
 
   const services = [
-    { title: t("servicesPage.services.0.title"), description: t("servicesPage.services.0.description"), features: t("servicesPage.services.0.features"), image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80" },
-    { title: t("servicesPage.services.1.title"), description: t("servicesPage.services.1.description"), features: t("servicesPage.services.1.features"), image: "https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&q=80" },
-    { title: t("servicesPage.services.2.title"), description: t("servicesPage.services.2.description"), features: t("servicesPage.services.2.features"), image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80" },
+    { title: t("servicesPage.services.0.title"), description: t("servicesPage.services.0.description"), features: t("servicesPage.services.0.features"), image: "/images/centro-id/services-page/virtual.png" },
+    { title: t("servicesPage.services.1.title"), description: t("servicesPage.services.1.description"), features: t("servicesPage.services.1.features"), image: "/images/centro-id/services-page/evaluations.png" },
+    { title: t("servicesPage.services.2.title"), description: t("servicesPage.services.2.description"), features: t("servicesPage.services.2.features"), image: "/images/centro-id/services-page/career.png" },
   ]
 
   return (

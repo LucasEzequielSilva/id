@@ -17,12 +17,12 @@ interface ServiceCardProps {
 }
 
 const defaultImages = {
-  virtual: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
-  inPerson: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&auto=format&fit=crop&q=60",
-  evaluation: "https://sinapsys.news/wp-content/uploads/2023/03/Os-desafios-na-carreira-do-psicologo-perito-na-Vara-de-Familia-Pexels.com-Timur-Weber-scaled.jpeg",
-  psychodiagnostics: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=800&auto=format&fit=crop&q=60",
-  career: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=60",
-  legal: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop&q=60",
+  virtual: "/images/centro-id/services/virtual.png",
+  inPerson: "/images/centro-id/services/in-person.png",
+  evaluation: "/images/centro-id/services/evaluations.png",
+  psychodiagnostics: "/images/centro-id/services/diagnostics.png",
+  career: "/images/centro-id/services/career.png",
+  legal: "/images/centro-id/services/legal.png",
 }
 
 const getDefaultImage = (key?: string) => {
