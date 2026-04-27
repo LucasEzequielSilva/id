@@ -70,13 +70,13 @@ export default function Home() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#fdfdfc]">
+    <div className="min-h-screen min-h-[100svh] bg-[#fdfdfc]">
       <Navbar />
 
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-screen bg-[#fdfdfc] overflow-hidden">
+      <section className="relative min-h-screen min-h-[100svh] bg-[#fdfdfc] overflow-hidden">
         {/* 3D Spline — absolute background layer (right half on desktop, bottom half on mobile/tablet) */}
-        <div className="absolute z-[5] pointer-events-none inset-x-0 top-[45vh] bottom-0 lg:top-0 lg:left-1/2 lg:right-0 lg:bottom-0">
+        <div className="absolute z-[5] pointer-events-none inset-x-0 top-[45vh] top-[45svh] bottom-0 lg:top-0 lg:left-1/2 lg:right-0 lg:bottom-0">
           <canvas ref={splineCanvasRef} className="absolute inset-0 w-full h-full" aria-hidden="true" style={{ background: "transparent" }} />
         </div>
 
@@ -121,7 +121,7 @@ export default function Home() {
         </div>
 
         {/* Hero text — z above gradients */}
-        <div className="relative z-[20] container mx-auto px-4 md:px-8 min-h-screen flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 pt-24 pb-12 lg:py-24">
+        <div className="relative z-[20] container mx-auto px-4 md:px-8 min-h-screen min-h-[100svh] flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 pt-24 pb-12 lg:py-24">
           <div className="lg:flex-1 lg:max-w-2xl">
             <div className="hero-badge opacity-0 mb-4">
               <span className="inline-flex items-center gap-2 text-[13px] text-[#8A8A84] tracking-wide">
